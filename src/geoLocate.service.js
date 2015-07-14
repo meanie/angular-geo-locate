@@ -45,7 +45,7 @@ angular.module('Utility.GeoLocate.Service', [])
       }
 
       //Broadcast error and reject promise
-      $rootScope.$broadcast('geoLocation.error', reason, error);
+      $rootScope.$broadcast('geoLocation.error', reason);
       $rootScope.$apply(function() {
         deferred.reject(reason);
       });
