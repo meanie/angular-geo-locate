@@ -1,7 +1,5 @@
 {
   "cliVersion": "0.5.1",
-  "destination": "client/common/undefinedgeolocation",
-  "instructions": "https://github.com/meanie/angular-geo-locate#usage",
-  "postInstall": "",
-  "dependencies": {}
+  "destination": "client/common/geoLocate",
+  "instructions": "https://github.com/meanie/angular-geo-locate#usage"
 }
