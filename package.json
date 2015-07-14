@@ -1,7 +1,7 @@
 {
   "name": "meanie-angular-geo-locate",
   "description": "A geolocation service for Angular.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/meanie/",
   "author": {
     "name": "Adam Buczynski",
