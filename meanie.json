@@ -1,5 +1,5 @@
 {
-  "cliVersion": "0.5.1",
-  "destination": "client/common/geoLocate",
+  "cliVersion": "0.6.0",
+  "destination": "client/vendor/meanie-angular-geo-locate",
   "instructions": "https://github.com/meanie/angular-geo-locate#usage"
 }
