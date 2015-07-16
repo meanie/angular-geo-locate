@@ -2,7 +2,7 @@
 /**
  * Module definition and dependencies
  */
-angular.module('Utility.GeoLocate.Service', [])
+angular.module('GeoLocate.Service', [])
 
 /**
  * Service definition
