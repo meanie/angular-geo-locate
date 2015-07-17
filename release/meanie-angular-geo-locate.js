@@ -15,7 +15,7 @@ angular.module('GeoLocate.Service', [])
 /**
  * Service definition
  */
-.factory('$geoLocate', ["$q", "$window", "$rootScope", function($q, $window, $rootScope) {
+.factory('$geoLocate', ['$q', '$window', '$rootScope', function($q, $window, $rootScope) {
   return function geoLocate(options) {
 
     //Check if available
