@@ -1,11 +1,11 @@
 /**
- * meanie-angular-geo-locate - v0.2.1 - 17-6-2015
+ * meanie-angular-geo-locate - v0.2.4 - 31-6-2015
  * https://github.com/meanie/angular-geo-locate
  *
  * Copyright (c) 2015 Adam Buczynski <me@adambuczynski.com>
  * License: MIT
  */
-(function (window, angular, undefined) {'use strict';
+(function(window, angular, undefined) {'use strict';
 
 /**
  * Module definition and dependencies
