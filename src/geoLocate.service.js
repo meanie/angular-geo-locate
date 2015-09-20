@@ -7,12 +7,22 @@ angular.module('GeoLocate.Service', [])
 /**
  * Service definition
  */
-.factory('$geoLocate', function($q, $window, $rootScope) {
+.factory('$geoLocate', function($q, $window, $location, $rootScope) {
   return function geoLocate(options) {
+    var reason;
 
     //Check if available
     if (!$window.navigator.geolocation) {
-      var reason = 'unsupportedBrowser';
+      reason = 'unsupportedBrowser';
+    }
+
+    //Check if on https (see https://goo.gl/rStTGz)
+    else if ($location.protocol() === 'http') {
+      reason = 'deprecatedOnHttp';
+    }
+
+    //If error reason present, reject
+    if (reason) {
       $rootScope.$broadcast('geoLocation.error', reason);
       return $q.reject(reason);
     }
