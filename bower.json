@@ -1,6 +1,6 @@
 {
   "name": "meanie-angular-geo-locate",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "./release/meanie-angular-geo-locate.js",
   "ignore": [
     "**/.*",

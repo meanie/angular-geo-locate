@@ -1,5 +1,5 @@
 /**
- * meanie-angular-geo-locate - v0.2.5 - 31-6-2015
+ * meanie-angular-geo-locate - v0.2.6 - 20-8-2015
  * https://github.com/meanie/angular-geo-locate
  *
  * Copyright (c) 2015 Adam Buczynski <me@adambuczynski.com>
@@ -15,12 +15,22 @@ angular.module('GeoLocate.Service', [])
 /**
  * Service definition
  */
-.factory('$geoLocate', ['$q', '$window', '$rootScope', function($q, $window, $rootScope) {
+.factory('$geoLocate', ['$q', '$window', '$location', '$rootScope', function($q, $window, $location, $rootScope) {
   return function geoLocate(options) {
+    var reason;
 
     //Check if available
     if (!$window.navigator.geolocation) {
-      var reason = 'unsupportedBrowser';
+      reason = 'unsupportedBrowser';
+    }
+
+    //Check if on https (see https://goo.gl/rStTGz)
+    else if ($location.protocol() === 'http') {
+      reason = 'deprecatedOnHttp';
+    }
+
+    //If error reason present, reject
+    if (reason) {
       $rootScope.$broadcast('geoLocation.error', reason);
       return $q.reject(reason);
     }
