@@ -1,5 +1,5 @@
 /**
- * meanie-angular-geo-locate - v0.2.6 - 20-8-2015
+ * meanie-angular-geo-locate - v1.0.0 - 23-9-2015
  * https://github.com/meanie/angular-geo-locate
  *
  * Copyright (c) 2015 Adam Buczynski <me@adambuczynski.com>
