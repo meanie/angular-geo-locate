@@ -6,35 +6,25 @@
 [![codacy](https://img.shields.io/codacy/23f91e13265b412b9e8926609b839992.svg)](https://www.codacy.com/app/meanie/angular-geo-locate)
 [![Join the chat at https://gitter.im/meanie/meanie](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/meanie/meanie?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-AngularJS module for geolocation
+An Angular service for geo location
 
 ## Installation
 
-You can install this package using `meanie`, `npm` or `bower`.
-
-### meanie
-
-```shell
-meanie install angular-geo-locate
-```
-
-Then add `GeoLocate.Service` as a dependency for your app:
-
-```js
-angular.module('App.MyModule', ['GeoLocate.Service']);
-```
+You can install this package using `npm` or `bower`.
 
 ### npm
 
 ```shell
-npm install meanie-angular-geo-locate
+npm install meanie-angular-geo-locate --save
 ```
 
-Then add as a dependency for your app:
+Include the script `node_modules/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js` in your build process, or add it via a `<script>` tag to your `index.html`:
 
-```js
-angular.module('App.MyModule', [require('meanie-angular-geo-locate')]);
+```html
+<script src="node_modules/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js"></script>
 ```
+
+Add `GeoLocate.Service` as a dependency for your app.
 
 ### bower
 
@@ -42,26 +32,24 @@ angular.module('App.MyModule', [require('meanie-angular-geo-locate')]);
 bower install meanie-angular-geo-locate
 ```
 
-Add a `<script>` to your `index.html`:
+Include the script `bower_components/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js` in your build process, or add it via a `<script>` tag to your `index.html`:
 
 ```html
-<script src="/bower_components/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js"></script>
+<script src="bower_components/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js"></script>
 ```
 
-Then add `GeoLocate.Service` as a dependency for your app:
-
-```js
-angular.module('App.MyModule', ['GeoLocate.Service']);
-```
+Add `GeoLocate.Service` as a dependency for your app.
 
 ## Usage
 
 ```js
-angular.module('App.MyModule').controller('MyController', function($geoLocate) {
+angular.module('App.MyModule', [
+  'GeoLocate.Service'
+]).controller('MyController', function($geoLocate) {
   $geoLocate().then(function(position) {
     //Position obtained
   }, function(reason) {
-    //Geolocation failed due to reason
+    //Geolocation failed due to given reason
   });
 });
 ```
@@ -80,4 +68,4 @@ If you would like to contribute to Meanie, please check out the [Meanie contribu
 
 (MIT License)
 
-Copyright 2015, [Adam Buczynski](http://adambuczynski.com)
+Copyright 2015-2016, [Adam Buczynski](http://adambuczynski.com)
