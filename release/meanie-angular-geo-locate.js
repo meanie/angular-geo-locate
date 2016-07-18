@@ -1,77 +1,80 @@
 /**
- * meanie-angular-geo-locate - v1.1.1 - 10-1-2016
+ * meanie-angular-geo-locate - v1.1.1 - 18-6-2016
  * https://github.com/meanie/angular-geo-locate
  *
  * Copyright (c) 2016 Adam Buczynski <me@adambuczynski.com>
  * License: MIT
  */
-(function(window, angular, undefined) {'use strict';
+'use strict';
 
-/**
- * Module definition and dependencies
- */
-angular.module('GeoLocate.Service', [])
+(function (window, angular, undefined) {
+  'use strict';
 
-/**
- * Service definition
- */
-.factory('$geoLocate', ['$q', '$window', '$location', '$rootScope', function($q, $window, $location, $rootScope) {
-  return function geoLocate(options) {
-    var reason;
+  /**
+   * Module definition and dependencies
+   */
 
-    //Check if available
-    if (!$window.navigator.geolocation) {
-      reason = 'unsupportedBrowser';
-    }
+  angular.module('GeoLocate.Service', [])
 
-    //Check if on https (see https://goo.gl/rStTGz)
-    else if ($location.protocol() === 'http') {
-      reason = 'deprecatedOnHttp';
-    }
-
-    //If error reason present, reject
-    if (reason) {
-      $rootScope.$broadcast('geoLocation.error', reason);
-      return $q.reject(reason);
-    }
-
-    //Create deferred
-    var deferred = $q.defer();
-
-    //Geolocate
-    $window.navigator.geolocation.getCurrentPosition(function(position) {
-
-      //Broadcast position and resolve promise
-      $rootScope.$broadcast('geoLocation.position', position);
-      $rootScope.$apply(function() {
-        deferred.resolve(position);
-      });
-    }, function(error) {
-
-      //Determine reason
+  /**
+   * Service definition
+   */
+  .factory('$geoLocate', ['$q', '$window', '$location', '$rootScope', function ($q, $window, $location, $rootScope) {
+    return function geoLocate(options) {
       var reason;
-      switch (error.code) {
-        case 1:
-          reason = 'permissionDenied';
-          break;
-        case 2:
-          reason = 'positionUnavailable';
-          break;
-        case 3:
-          reason = 'timeout';
-          break;
+
+      //Check if available
+      if (!$window.navigator.geolocation) {
+        reason = 'unsupportedBrowser';
       }
 
-      //Broadcast error and reject promise
-      $rootScope.$broadcast('geoLocation.error', reason);
-      $rootScope.$apply(function() {
-        deferred.reject(reason);
-      });
-    }, options);
+      //Check if on https (see https://goo.gl/rStTGz)
+      else if ($location.protocol() === 'http') {
+          reason = 'deprecatedOnHttp';
+        }
 
-    //Return promise
-    return deferred.promise;
-  };
-}]);
+      //If error reason present, reject
+      if (reason) {
+        $rootScope.$broadcast('geoLocation.error', reason);
+        return $q.reject(reason);
+      }
 
+      //Create deferred
+      var deferred = $q.defer();
+
+      //Geolocate
+      $window.navigator.geolocation.getCurrentPosition(function (position) {
+
+        //Broadcast position and resolve promise
+        $rootScope.$broadcast('geoLocation.position', position);
+        $rootScope.$apply(function () {
+          deferred.resolve(position);
+        });
+      }, function (error) {
+
+        //Determine reason
+        var reason;
+        switch (error.code) {
+          case 1:
+            reason = 'permissionDenied';
+            break;
+          case 2:
+            reason = 'positionUnavailable';
+            break;
+          case 3:
+            reason = 'timeout';
+            break;
+        }
+
+        //Broadcast error and reject promise
+        $rootScope.$broadcast('geoLocation.error', reason);
+        $rootScope.$apply(function () {
+          deferred.reject(reason);
+        });
+      }, options);
+
+      //Return promise
+      return deferred.promise;
+    };
+  }]);
 })(window, window.angular);
