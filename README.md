@@ -12,9 +12,7 @@ An Angular service for geo location
 
 ## Installation
 
-You can install this package using `npm` or `bower`.
-
-### npm
+You can install this package using `npm`:
 
 ```shell
 npm install meanie-angular-geo-locate --save
@@ -24,20 +22,6 @@ Include the script `node_modules/meanie-angular-geo-locate/release/meanie-angula
 
 ```html
 <script src="node_modules/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js"></script>
-```
-
-Add `GeoLocate.Service` as a dependency for your app.
-
-### bower
-
-```shell
-bower install meanie-angular-geo-locate
-```
-
-Include the script `bower_components/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js` in your build process, or add it via a `<script>` tag to your `index.html`:
-
-```html
-<script src="bower_components/meanie-angular-geo-locate/release/meanie-angular-geo-locate.js"></script>
 ```
 
 Add `GeoLocate.Service` as a dependency for your app.
