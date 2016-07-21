@@ -1,12 +1,9 @@
 /**
- * meanie-angular-geo-locate - v1.1.2 - 18-6-2016
- * https://github.com/meanie/angular-geo-locate
+ * meanie-angular-geo-locate * https://github.com/meanie/angular-geo-locate
  *
  * Copyright (c) 2016 Adam Buczynski <me@adambuczynski.com>
  * License: MIT
  */
-'use strict';
-
 (function (window, angular, undefined) {
   'use strict';
 
