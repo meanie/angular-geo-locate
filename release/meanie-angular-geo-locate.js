@@ -1,7 +1,7 @@
 /**
  * meanie-angular-geo-locate * https://github.com/meanie/angular-geo-locate
  *
- * Copyright (c) 2016 Adam Buczynski <me@adambuczynski.com>
+ * Copyright (c) 2016 Adam Reis <adam@reis.nz>
  * License: MIT
  */
 (function (window, angular, undefined) {
