@@ -1,2 +1,2 @@
-require('./release/meanie-angular-geo-locate.js');
+require('./release/angular-geo-locate.js');
 module.exports = 'GeoLocate.Service';
